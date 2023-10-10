@@ -17,6 +17,7 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import com.example.pictgram.filter.FormAuthenticationProvider;
 import com.example.pictgram.repository.UserRepository;
 
+@SuppressWarnings("deprecation")
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 

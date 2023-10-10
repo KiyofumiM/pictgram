@@ -39,8 +39,6 @@ public class UsersController {
         String name = form.getName();
         String email = form.getEmail();
         String password = form.getPassword();
-        String passwordConfirmation = form.getPasswordConfirmation();
-
         if (repository.findByUsername(email) != null) {
             FieldError fieldError = new FieldError(result.getObjectName(), "email", "その E メールはすでに使用されています。");
             result.addError(fieldError);

@@ -22,11 +22,16 @@ public class AbstractEntity {
     public void onPrePersist() {
         Date date = new Date();
         setCreatedAt(date);
-        setUpdatedAt(date);
+        setCreatedAt(date);
     }
 
-    @PreUpdate
+    private void setCreatedAt(Date date) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@PreUpdate
     public void onPreUpdate() {
-        setUpdatedAt(new Date());
+        setCreatedAt(new Date());
     }
 }
