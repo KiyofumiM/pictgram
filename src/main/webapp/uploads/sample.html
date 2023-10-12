@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <meta name="description" content="テキストテキストテキストテキストテキストテキストテキストテキスト">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+	
+<style>
+
+html {
+  font-size: 100%;
+}
+body {
+  color: #383e45;
+  font-size: 0.9rem;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+}
+li {
+  list-style: none;
+}
+.site-title {
+  width: 120px;
+  line-height: 1px;
+  padding: 10px 0;
+}
+.site-title a {
+  display: block;
+}
+.section-title {
+  display: inline-block;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 60px;
+  border-bottom: solid 1px #383e45;
+}
+.content-title {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto 100px auto;
+  padding: 0 4%;
+  text-align: center;
+}
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+#header ul {
+  display: flex;
+  padding: 10px 0;
+}
+#header li {
+  margin-left: 30px;
+}
+#header li a {
+  color: #24292e;
+}
+#header li a:hover {
+  opacity: 0.7;
+}
+
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+#mainvisual {
+  margin-bottom: 80px;
+}
+#mainvisual img {
+  width: 100%;
+  max-width: 1920px;
+  height: 600px;
+  object-fit: cover;
+}
+
+/*-------------------------------------------
+About
+-------------------------------------------*/
+#about .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#about img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+#about .text {
+  text-align: left;
+}
+
+/*-------------------------------------------
+Bicycle
+-------------------------------------------*/
+#bicycle ul {
+  display: flex;
+  justify-content: space-between;
+}
+#bicycle li {
+  width: 32%;
+}
+
+/*-------------------------------------------
+footer
+-------------------------------------------*/
+#footer {
+  font-size: 0.5rem;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/*-------------------------------------------
+SP
+-------------------------------------------*/
+@media screen and (max-width: 600px) {
+
+  /*-------------------------------------------
+  Mainvisual
+  -------------------------------------------*/
+  #mainvisual img {
+    height: calc(100vh - 60px);
+  }
+
+  /*-------------------------------------------
+  About
+  -------------------------------------------*/
+  #about .content {
+    flex-direction: column;
+  }
+  #about img {
+    margin-right: 0;
+  }
+
+  /*-------------------------------------------
+  Bicycle
+  -------------------------------------------*/
+  #bicycle ul {
+    flex-direction: column;
+  }
+  #bicycle li {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+</style>
+  </head>
+
+  <body>
+    <header id="header" class="wrapper">
+      <h1 class="site-title"><a href="index.html"><img src="img/logo.svg" alt="Profile"></a></h1>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#bicycle">Bicycle</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div id="mainvisual">
+        <img src="img/mainvisual.jpg" alt="テキストテキストテキスト">
+      </div>
+
+      <section id="about" class="wrapper">
+        <h2 class="section-title">About</h2>
+        <div class="content">
+          <img src="img/about.jpg" alt="テキストテキストテキスト">
+          <div class="text">
+            <h3 class="content-title">KAKERU MIYAICHI</h3>
+            <p>
+              テキストテキストテキストテキストテキストテキストテキスト<br>
+              テキストテキストテキストテキストテキストテキストテキスト<br>
+              テキストテキストテキストテキストテキストテキストテキスト
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="bicycle" class="wrapper">
+        <h2 class="section-title">Bicycle</h2>
+        <ul>
+          <li>
+            <img src="img/bicycle1.jpg" alt="テキストテキストテキスト">
+            <h3 class="content-title">タイトルタイトル</h3>
+            <p>テキストテキストテキスト</p>
+          </li>
+          <li>
+            <img src="img/bicycle2.jpg" alt="テキストテキストテキスト">
+            <h3 class="content-title">タイトルタイトル</h3>
+            <p>テキストテキストテキスト</p>
+          </li>
+          <li>
+            <img src="img/bicycle3.jpg" alt="テキストテキストテキスト">
+            <h3 class="content-title">タイトルタイトル</h3>
+            <p>テキストテキストテキスト</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer id="footer">
+      <p>&copy; 2020 Profile</p>
+    </footer>
+
+  </body>
+
+</html>

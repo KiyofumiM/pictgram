@@ -22,7 +22,7 @@ import lombok.Data;
 
 @Entity
 @Table(name = "users")
-@Data
+//@Data
 public class User extends AbstractEntity implements UserDetails, UserInf {
     private static final long serialVersionUID = 1L;
 

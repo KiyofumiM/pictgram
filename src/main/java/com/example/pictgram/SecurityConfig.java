@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private FormAuthenticationProvider authenticationProvider;
 
-    private static final String[] URLS = { "/css/**", "/images/**", "/scripts/**", "/h2-console/**" };
+    private static final String[] URLS = { "/css/**", "/images/**", "/scripts/**", "/h2-console/**", "/favicon.ico" };
 
     /**
     * 認証から除外する
@@ -70,5 +70,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+	public UserRepository getRepository() {
+		return repository;
+	}
+
+	public void setRepository(UserRepository repository) {
+		this.repository = repository;
+	}
 
 }
