@@ -36,6 +36,9 @@ public class TopicForm {
     private List<FavoriteForm> favorites;
     
     private FavoriteForm favorite;
+    
+    private List<CommentForm> comments;
+    
 
 	public Long getId() {
 		return id;
@@ -107,6 +110,14 @@ public class TopicForm {
 
 	public void setFavorite(FavoriteForm favorite) {
 		this.favorite = favorite;
+	}
+
+	public List<CommentForm> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<CommentForm> comments) {
+		this.comments = comments;
 	}
     
 	

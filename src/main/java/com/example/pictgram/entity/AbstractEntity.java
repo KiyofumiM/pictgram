@@ -34,4 +34,16 @@ public class AbstractEntity {
     public void onPreUpdate() {
         setCreatedAt(new Date());
     }
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
 }

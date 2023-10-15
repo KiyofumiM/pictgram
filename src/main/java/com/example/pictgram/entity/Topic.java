@@ -52,6 +52,10 @@ public class Topic extends AbstractEntity implements Serializable {
     @OneToMany
     @JoinColumn(name = "topicId", insertable = false, updatable = false)
     private List<Favorite> favorites;
+    
+    @OneToMany
+    @JoinColumn(name = "topicId", insertable = false, updatable = false)
+    private List<Comment> comments;
 
 	public Long getId() {
 		return id;
@@ -119,6 +123,14 @@ public class Topic extends AbstractEntity implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
     
 
