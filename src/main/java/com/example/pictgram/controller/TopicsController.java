@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import org.springframework.context.MessageSource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FilenameUtils;
@@ -44,11 +45,17 @@ import com.example.pictgram.entity.Favorite;
 import com.example.pictgram.form.CommentForm;
 import com.example.pictgram.form.FavoriteForm;
 
+import org.thymeleaf.context.Context;
+import com.example.pictgram.service.SendMailService;
+
 @Controller
 public class TopicsController {
 
     protected static Logger log = LoggerFactory.getLogger(TopicsController.class);
 
+    @Autowired
+	private MessageSource messageSource;
+    
     @Autowired
     private ModelMapper modelMapper;
 
@@ -60,6 +67,9 @@ public class TopicsController {
 
     @Value("${image.local:false}")
     private String imageLocal;
+    
+    @Autowired
+    private SendMailService sendMailService;
 
     @GetMapping(path = "/topics")
     public String index(Principal principal, Model model) throws IOException {
@@ -158,12 +168,12 @@ public class TopicsController {
 
     @RequestMapping(value = "/topic", method = RequestMethod.POST)
     public String create(Principal principal, @Validated @ModelAttribute("form") TopicForm form, BindingResult result,
-            Model model, @RequestParam MultipartFile image, RedirectAttributes redirAttrs)
+    		Model model, @RequestParam MultipartFile image, RedirectAttributes redirAttrs, Locale locale)
             throws IOException {
         if (result.hasErrors()) {
             model.addAttribute("hasMessage", true);
             model.addAttribute("class", "alert-danger");
-            model.addAttribute("message", "投稿に失敗しました。");
+            model.addAttribute("message", messageSource.getMessage("topics.create.flash.1", new String[] {}, locale));
             return "topics/new";
         }
 
@@ -188,8 +198,14 @@ public class TopicsController {
 
         redirAttrs.addFlashAttribute("hasMessage", true);
         redirAttrs.addFlashAttribute("class", "alert-info");
-        redirAttrs.addFlashAttribute("message", "投稿に成功しました。");
-
+        redirAttrs.addFlashAttribute("message", messageSource.getMessage("topics.create.flash.2", new String[] {}, locale));
+        
+        Context context = new Context();
+        context.setVariable("title", "【Pictgram】新規投稿");
+        context.setVariable("name", user.getUsername());
+        context.setVariable("description", entity.getDescription());
+        sendMailService.sendMail(context);
+        
         return "redirect:/topics";
     }
 
@@ -247,6 +263,22 @@ public class TopicsController {
 
 	public void setImageLocal(String imageLocal) {
 		this.imageLocal = imageLocal;
+	}
+
+	public SendMailService getSendMailService() {
+		return sendMailService;
+	}
+
+	public void setSendMailService(SendMailService sendMailService) {
+		this.sendMailService = sendMailService;
+	}
+
+	public MessageSource getMessageSource() {
+		return messageSource;
+	}
+
+	public void setMessageSource(MessageSource messageSource) {
+		this.messageSource = messageSource;
 	}
 
 }

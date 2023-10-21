@@ -19,6 +19,9 @@ import javax.persistence.Table;
 
 import lombok.Data;
 
+import org.thymeleaf.context.Context;
+import com.example.pictgram.service.SendMailService;
+
 @Entity
 @Table(name = "topic")
 //@Data
