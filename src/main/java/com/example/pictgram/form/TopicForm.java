@@ -30,6 +30,10 @@ public class TopicForm {
     @NotEmpty
     @Size(max = 1000)
     private String description;
+    
+    private Double latitude;
+    
+    private Double longitude;
 
     private UserForm user;
 
@@ -118,6 +122,22 @@ public class TopicForm {
 
 	public void setComments(List<CommentForm> comments) {
 		this.comments = comments;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
 	}
     
 	
