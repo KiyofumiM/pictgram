@@ -38,17 +38,18 @@ public class FormAuthenticationProvider implements AuthenticationProvider {
         if ("".equals(name) || "".equals(password)) {
             throw new AuthenticationCredentialsNotFoundException("ログイン情報に不備があります。");
         }
-
+        
         User entity = repository.findByUsername(name);
+        
         if (entity == null) {
             throw new AuthenticationCredentialsNotFoundException("ログイン情報が存在しません。");
         }
-
+        
         // 追加 入力されたパスワードとデータベースのパスワードを比較
         if (!passwordEncoder.matches(password, entity.getPassword())) {
             throw new AuthenticationCredentialsNotFoundException("ログイン情報に不備があります。");
         }
-
+        
         return new UsernamePasswordAuthenticationToken(entity, password, entity.getAuthorities());
     }
 

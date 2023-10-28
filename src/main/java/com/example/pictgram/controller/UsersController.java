@@ -47,10 +47,12 @@ public class UsersController {
         String name = form.getName();
         String email = form.getEmail();
         String password = form.getPassword();
+        
         if (repository.findByUsername(email) != null) {
         	FieldError fieldError = new FieldError(result.getObjectName(), "email", messageSource.getMessage("users.create.error.1", new String[] {}, locale));
             result.addError(fieldError);
         }
+        
         if (result.hasErrors()) {
         	model.addAttribute("hasMessage", true);
         	model.addAttribute("class", "alert-danger");
@@ -63,7 +65,7 @@ public class UsersController {
         
         model.addAttribute("hasMessage", true);
         model.addAttribute("class", "alert-info");
-        model.addAttribute("message", "ユーザー登録が完了しました。");
+        model.addAttribute("message", messageSource.getMessage("users.create.flash.2", new String[] {}, locale));
         
         return "layouts/complete";
     }

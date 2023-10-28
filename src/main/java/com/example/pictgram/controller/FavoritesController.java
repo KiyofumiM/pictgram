@@ -94,4 +94,28 @@ public class FavoritesController {
         }
         return "redirect:/topics";
     }
+
+	public MessageSource getMessageSource() {
+		return messageSource;
+	}
+
+	public void setMessageSource(MessageSource messageSource) {
+		this.messageSource = messageSource;
+	}
+
+	public FavoriteRepository getRepository() {
+		return repository;
+	}
+
+	public void setRepository(FavoriteRepository repository) {
+		this.repository = repository;
+	}
+
+	public TopicsController getTopicsController() {
+		return topicsController;
+	}
+
+	public void setTopicsController(TopicsController topicsController) {
+		this.topicsController = topicsController;
+	}
 }

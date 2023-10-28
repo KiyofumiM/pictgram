@@ -55,8 +55,7 @@ public class CommentsController {
 
         redirAttrs.addFlashAttribute("hasMessage", true);
         redirAttrs.addFlashAttribute("class", "alert-info");
-        redirAttrs.addFlashAttribute("message",
-                messageSource.getMessage("comments.create.flash.2", new String[] {}, locale));
+        redirAttrs.addFlashAttribute("message", messageSource.getMessage("comments.create.flash.2", new String[] {}, locale));
 
         return "redirect:/topics";
     }
